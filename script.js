@@ -48,21 +48,6 @@ function randomInteger(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-// function fetchPokemon(id, id1) {
-//     fetch(`https://pokeapi.co/api/v2/pokemon/${id}`).then((response) => {
-//         return response.json()
-//     }).then((pokData) => {
-//         showBox1(pokData)
-//         return fetch(`https://pokeapi.co/api/v2/pokemon/${id1}`);
-//     }).then((response) => {
-//         return response.json()
-//     }).then((pokData) => {
-//         showBox2(pokData)
-//         updateScore(c1xp, c2xp)
-//     }).catch((err) => {
-//         console.log("Error Found")
-//     })
-// }        
 async function fetchPokemon(id, id1) {
     const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`)
     const pokData = await response.json()
@@ -74,9 +59,7 @@ async function fetchPokemon(id, id1) {
 }
 
 function showBox1(pokemonData) {
-    // console.log(pokemonData)
     p1_name.textContent = "John";
-    // p1_score.textContent = `Score: 0`;
     const cardImage = document.createElement("img");
     cardImage.src = pokemonData.sprites.other.dream_world.front_default
     card1Img.append(cardImage)
@@ -90,9 +73,7 @@ function showBox1(pokemonData) {
     c1xp = pokemonData.base_experience;
 }
 function showBox2(pokemonData) {
-    // console.log(pokemonData)
     p2_name.textContent = "Alice";
-    // p2_score.textContent = `Score: 0`;
     const cardImage = document.createElement("img");
     cardImage.src = pokemonData.sprites.other.dream_world.front_default
     card2Img.append(cardImage)
